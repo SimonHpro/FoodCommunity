@@ -111,6 +111,7 @@ class Adresses
         $req->bindParam(":cp", $cp);
         $req->bindParam(":id_commerce", $id_commerce);
         $req->execute();
+
         $this->id = $db->lastInsertId();
         $db = null;
     }
@@ -162,18 +163,16 @@ class Adresses
         return $Adresse;
     }
 
-    public static function getAdressesByIdCommerce($id_commerce)
+    public static function getAdresseByIdCommerce($id_commerce)
     {
         $db = new PDO("mysql:host=" . config::SERVERNAME . ";dbname=" . config::DBNAME, config::USER, config::PASSWORD);
         $req = $db->prepare("SELECT * FROM Adresse WHERE id_commerce=:id_commerce");
         $req->bindParam(":id_commerce", $id_commerce);
         $req->execute();
         $result = $req->fetchAll();
-        $Adresses = [];
-        foreach ($result as $line) {
-            $Adresses[] = Adresses::getAdresseById($line["id"]);
-        }
+        $Adresse = Adresses::getAdresseById($result[0]["id"]);
+
         $db = null;
-        return $Adresses;
+        return $Adresse;
     }
 }

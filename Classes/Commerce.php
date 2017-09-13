@@ -102,9 +102,10 @@ class Commerce
        $req->bindParam(":telephone",$telephone);
        $req->execute();
        $this->id = $db->lastInsertId();
+
        $db = null;
    }
-   public function getCommerceById($id){
+   public static function getCommerceById($id){
        $db= new PDO("mysql:host=".config::SERVERNAME.";dbname=".config::DBNAME,config::USER,config::PASSWORD);
        $req = $db->prepare("SELECT * FROM commerce WHERE id=:id");
        $req->bindParam(":id",$id);

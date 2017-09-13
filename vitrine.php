@@ -11,7 +11,7 @@
 	</head>
 
 	<body>
-        <?php 
+        <?php include_once "Classes/config.php";
         include_once "menu.php"; 
         $MAX_CATEGORIE = 5;
         ?>
@@ -22,7 +22,7 @@
         <?php
         try 
         {
-            $bdd = new PDO('mysql:host=localhost;dbname=workshop;charset=utf8', 'root', '');
+            $bdd = new PDO('mysql:host='.config::SERVERNAME.";dbname=".config::DBNAME,config::USER, config::PASSWORD);
         }
         catch(Execption $e)
         {
@@ -37,7 +37,7 @@
         $index = 1;
         while ($dataCategorie = $repCategorie->fetch())
         {
-            $tabCategorie[$index] = $dataCategorie['nomCategories'];
+            $tabCategorie[$index] = $dataCategorie['nomCategorie'];
             $index++;
         }
         /*   

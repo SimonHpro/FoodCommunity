@@ -1,8 +1,10 @@
+<?php session_start(); ?>
 <!doctype html>
 
 <html>
 	<head>
-		<title>Page Title</title>
+        <title>Food Community</title>
+        <link rel="shortcut icon" type="image/x-icon" href="Classes/favicon.png" />
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -11,16 +13,25 @@
 	</head>
 
 	<body>
-        <?php include_once "menu.php"; ?> 
+        <?php
+        include_once  "Classes/config.php";
+        include_once "Classes/Commerce.php";
+        include_once "Classes/Adresses.php";
+
+        $id_commerce= $_SESSION["UserId"];
+        $commerce = Commerce::getCommerceById($id_commerce);
+        $Adresse = Adresses::getAdresseByIdCommerce($id_commerce);
+
+        include_once "menu.php"; ?>
         <h2 id="mainTitle">Food Community</h2>
         <div id="formulaire">
             <h3>Configuration des informations</h3>
-            <p>Nom de l'entreprise : </p>
-            <p>Numéro de téléphone : </p>
-            <input class="btn btn-info" value="modifier">
+            <p>Nom de l'entreprise : <?php echo $commerce->getNom()?> </p>
+            <p>Numéro de téléphone : <?php echo "0".$commerce->getTelephone() ?> </p>
+            <input type="button" class="btn btn-info" value="modifier">
             <hr>
-            <p>Adresse : </p>
-            <input class="btn btn-info" value="modifier">
+            <p>Adresse : <?php echo $Adresse->getAdresse() ." ".$Adresse->getCodePostal()." ".$Adresse->getVille() ?> </p>
+            <input type="button" class="btn btn-info" value="modifier">
             
             <br>
             <p>Plan google Map de l'adresse <b>(en cours de développement)</b></p>
@@ -54,10 +65,10 @@
             <hr>
             <h3>Historique des ventes</h3>
             <p>Historique des ventes en cours : </p>
-            <input class="btn btn-info" value="Afficher mes produits">
+            <input type="button"class="btn btn-info" value="Afficher mes produits">
             <hr>
             <p>Historique des ventes </p>
-            <input class="btn btn-info" value="Voir mes ventes">
+            <input type="button" class="btn btn-info" value="Voir mes ventes">
         </div>
 	</body>
 </html>
