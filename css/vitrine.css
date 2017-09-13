@@ -1,0 +1,37 @@
+body{
+    background-image: url('../Images/l%C3%A9gumes.jpg');
+    margin:0;
+    padding:0;
+}
+
+#menu ul{
+    list-style: none;
+    float: left;
+}
+
+span{
+    color: red;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+#formulaire{
+    background-color: white;
+    margin : 0% 10% 10% 10%;
+    min-height: 100vh;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+#mainTitle{
+    padding-top: 10px;
+    font-size: 500%;
+    color : white;
+    text-align: center;
+    font-family: 'Libre Barcode 39 Text', cursive;
+}
+
+.icone{
+    border-radius: 5px;
+}

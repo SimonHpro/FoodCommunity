@@ -1,0 +1,63 @@
+html {
+    height: 100%;
+}
+
+label{
+    font-weight: bold; 
+}
+
+select{
+    border-radius: 5px;
+}
+
+#Menu ul{
+    margin-top: 10px;
+    background-color: #D6ED87;
+    border-top: 3px solid  green;
+    border-bottom: 3px solid green;
+}
+
+#Menu ul li{
+    text-align: center;
+    /*margin-left: 14%;*/
+    list-style: none;
+    display: inline;
+}
+
+#Menu ul li a{
+    color: green;
+}
+
+body{
+    background-image: url('../Images/plante.jpg');
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#formulaire{
+    background-color: white;
+    margin : 0% 10% 10% 10%;
+    min-height: 100vh;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+#mainTitle{
+    padding-top: 10px;
+    font-size: 500%;
+    color : white;
+    text-align: center;
+    font-family: 'Libre Barcode 39 Text', cursive;
+}
+
+.icone{
+    height: 100px;
+    border: 3px solid #0F9D58;
+    border-radius: 10px;
+    float: left;
+    margin-right: 20px;
+
+}
+
