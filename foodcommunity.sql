@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 13 Septembre 2017 à 15:38
+-- Généré le :  Jeu 14 Septembre 2017 à 13:25
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -83,7 +83,7 @@ CREATE TABLE `commerce` (
 --
 
 INSERT INTO `commerce` (`id`, `Nom`, `Mail`, `password`, `Telephone`) VALUES
-(4, 'EPSI Nantes', 'epsinantes@epsi.fr', 'epsinantes', 299804123),
+(4, 'EPSI nantes', 'epsinantes@epsi.fr', 'epsinantes', 299562141),
 (5, 'WIS Nantes', 'wisnantes@wis.fr', 'wis8956513', 289564518);
 
 -- --------------------------------------------------------
@@ -114,7 +114,7 @@ INSERT INTO `produit` (`id`, `names`, `desc`, `prix`, `images`, `DLC`, `poids`, 
 (5, 'mais', 'mais de bretagne', 2.66, 'mais.jpg', '2017-09-28', 1, 4, 1),
 (25, 'Patate', 'des bonnes patates de normandie', 4.99, 'patate.jpg', '2017-09-17', 2.6, 4, 1),
 (48, 'Poulet', 'poulet rôti', 12, 'poulet.jpg', '2017-09-14', 2, 4, 4),
-(51, 'Kanard', 'kanard braisÃ©', 42, 'Koinavecunk.png', '2017-09-14', 22, 4, 4);
+(51, 'Kanard', 'kanard braisé', 42, 'Koinavecunk.png', '2017-09-14', 22, 4, 4);
 
 --
 -- Index pour les tables exportées
