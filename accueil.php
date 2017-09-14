@@ -53,6 +53,7 @@
         <div id="formulaire">
             <h1 id="titleTwo"><b>Notre action</b></h1>
             <br>
+            <b>
             <p>Food Community rassemble les personnes désirant lutter contre le gaspillage.</p>
             <p>Grâce à un accord avec les entreprises nous vous proposons des produits qui sont consommable mais se rapprochant de la fin de la date limite de consommation.</p>
             <p>Les entreprises partenaires ont choisi Food Community pour vous offrir des prix bas sur ces produits</p>
@@ -65,7 +66,7 @@
                 Your browser does not support the video tag.
             </video>
             <p>Arrêtez de gaspiller rejoignez Food Community !!!</p>
-
+                </b>
         </div>
 	</body>
 </html>

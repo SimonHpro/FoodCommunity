@@ -47,11 +47,11 @@
             <h1 id="titleTwo"><b>Notre action</b></h1>
             <br>
             <p>Food Community rassemble les personnes désirant lutter contre le gaspillage.</p>
-            <p>Grâce à un accord avec les entreprises nous vous proposons des produits qui sont consommable mais se rapprochant de la fin de la date limite de consommation.</p>
-            <p>Les entreprises partenaires ont choisi Food Community pour vous offrir des prix bas sur ces produits</p>
-            <p>L'avantage de nos services permet de réduire les gachis de nourritures mais aussi les pertes dans les entreprises d'alimentation.</p>
+            <p>Grâce à un accord avec les entreprises nous vous proposons des produits qui sont consommables mais se rapprochant de la fin de la date limite de consommation.</p>
+            <p>Les entreprises partenaires ont choisi Food Community pour vous offrir des prix bas sur ces produits.</p>
+            <p>L'avantage de nos services permet de réduire le gaspillage de nourritures mais aussi les pertes dans les entreprises d'alimentation.</p>
             <br>
-            <video width="520" height="420" controls autoplay>
+            <video width="520" height="420" controls >
                 <source src="Images/TrailerFC.avi" type="video/avi">
                 <source src="Images/TrailerFC.mp4" type="video/mp4">
                 Your browser does not support the video tag.

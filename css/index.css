@@ -11,21 +11,23 @@ select{
 }
 
 #Menu ul{
+    font-weight: bold;
     margin-top: 10px;
-    background-color: #D6ED87;
-    border-top: 3px solid  green;
-    border-bottom: 3px solid green;
+    background-color: lightgreen;
+    border-top: 3px solid  forestgreen;
+    border-bottom: 3px solid forestgreen;
+    color: lightblue;
 }
 
-#Menu ul li{
+#Menu ul li{ 
     text-align: center;
-    /*margin-left: 14%;*/
+    margin-left: 10%;
     list-style: none;
     display: inline;
 }
 
 #Menu ul li a{
-    color: green;
+    color: forestgreen;
 }
 
 body{
@@ -47,7 +49,7 @@ body{
 #mainTitle{
     padding-top: 10px;
     font-size: 500%;
-    color : white;
+    color: floralwhite;
     text-align: center;
     font-family: 'Libre Barcode 39 Text', cursive;
 }

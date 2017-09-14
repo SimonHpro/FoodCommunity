@@ -38,6 +38,7 @@
         }else{
             ?>
     <div style="height:30px;width:100%;">
+        <a href="index.php" style="float:right;" class="btn btn-danger">Accueil</a>
         <a href="connexion.php"><button  class="btn btn-info" style="float:right;">Connexion entreprise</button></a>
         <a href="CreerCommerce.php"><button  class="btn btn-info" style="float:right;">Inscription entreprise</button></a>
 
@@ -66,18 +67,13 @@
             
         $repCategorie = $bdd->query('SELECT * FROM categorie');
         
-            $tabCategorie = array();
+        $tabCategorie = array();
         $index = 1;
         while ($dataCategorie = $repCategorie->fetch())
         {
             $tabCategorie[$index] = $dataCategorie['nomCategorie'];
             $index++;
         }
-        /*   
-        for ($i = 1; $i < 4; $i++){
-            echo $tabCategorie[$i] . '<br>';
-        }
-        */  
         ?>
             <form action="" form="get">
                 <p>Recherche par catégorie<br>
@@ -97,6 +93,7 @@
         <?php
         while ($data = $rep->fetch())
         {
+            // Recherche par catégorie
             if (isset($_GET['categorie']) && $data['id_categorie'] == $_GET['categorie'])
             {
                 echo "<img class=\"icone\" src=\"ProductImages/";
@@ -107,7 +104,9 @@
                 echo "DLC : " . date("d/m/y" ,strtotime($data['DLC'])) . "<br>";
                 echo "Poids : " . $data['poids'] . "kg <br>";
                 echo "Categorie : " . $tabCategorie[$data['id_categorie']] . "<br><br>";
+                
                 echo "<input class=\"btn btn-success\" value=\"ACHETER ". $data['prix'] ."€\">";
+                
                 echo "<hr>";
             }
             
@@ -121,7 +120,22 @@
                 echo "Description du produit : " . $data['desc']."<br>";
                 echo "DLC : " . date("d/m/y" ,strtotime($data['DLC'])) . "<br>";
                 echo "Poids : " . $data['poids'] . "kg <br>";
-                echo "Categorie : " . $tabCategorie[$data['id_categorie']] . "<br><br>";
+                echo "Categorie : " . $tabCategorie[$data['id_categorie']] ."<br>";
+                
+                echo "<b>Contact :</b><br>";
+                $repContact = $bdd->query("SELECT * FROM commerce WHERE id=".$data['id_commerce']);
+                while ($dataContact = $repContact->fetch())
+                {
+                    echo "Nom : " . $dataContact['Nom'] .' Mail : '. $dataContact['Mail'] .' Telephone : 0'. $dataContact['Telephone'];
+                }
+                
+                $repCommerce = $bdd->query('SELECT * FROM adresse WHERE id_commerce='.$data['id_commerce'].'');
+                while ($dataCommerce = $repCommerce->fetch())
+                {
+                    echo "<p style='color:blue;'>";
+                    echo $dataCommerce['Adresse'] ." ".$dataCommerce['Ville'] ." ". $dataCommerce['CodePostal'];
+                    echo "</p>";
+                }
                 echo "<input class=\"btn btn-success\" value=\"ACHETER ". $data['prix'] ."€\">";
                 echo "<hr>";    
             }

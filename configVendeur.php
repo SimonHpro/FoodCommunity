@@ -36,9 +36,9 @@ include_once "Classes/Adresses.php";
 $id_commerce = $_SESSION["UserId"];
 $commerce = Commerce::getCommerceById($id_commerce);
 $Adresse = Adresses::getAdresseByIdCommerce($id_commerce);
-
-include_once "menu.php"; ?>
-<h2 id="mainTitle">Food Community</h2>
+?>
+<h1 id="mainTitle">Food Community</h1>
+<?php include_once "menu.php"; ?>
 <div id="formulaire">
     <h3>Configuration des informations</h3>
     <p>Nom de l'entreprise : <?php echo $commerce->getNom() ?> </p>
@@ -69,20 +69,27 @@ include_once "menu.php"; ?>
         <br>
         <p>Plan google Map de l'adresse <b>(en cours de développement)</b></p>
 
+        
+        
         <div id="map" style="width:400px;height:400px;background:yellow; border-radius:15px;"></div>
 
 
-        <script>
+        <script type="application/javascript">
+            
             function myMap() {
+
+            var x = 47.216671;
+            var y = -1.55;
+                
                 var mapOptions =
                     {
-                        center: new google.maps.LatLng(47.216671, -1.55),
+                        center: new google.maps.LatLng(x, y),
                         zoom: 10,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     }
                 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-                var nantes = {lat: 47.216671, lng: -1.55};
+                var nantes = {lat: x, lng: y};
                 var marker = new google.maps.Marker({
                     position: nantes,
                     map: map
@@ -98,11 +105,38 @@ include_once "menu.php"; ?>
 
     <hr>
     <h3>Historique des ventes</h3>
-    <p>Historique des ventes en cours : </p>
-    <input type="button" class="btn btn-info" value="Afficher mes produits">
     <hr>
-    <p>Historique des ventes </p>
-    <input type="button" class="btn btn-info" value="Voir mes ventes">
+    <p><b>Historique des produits (en ligne)</b> </p>
+
+    <?php
+    
+        try 
+        {
+            $bdd = new PDO('mysql:host='.config::SERVERNAME.";dbname=".config::DBNAME,config::USER, config::PASSWORD);
+        }
+        catch(Execption $e)
+        {
+            die('Erreur : '.$e->getMessage());
+        }
+    
+        
+        $rep = $bdd->query("SELECT * FROM produit WHERE id_commerce=".$_SESSION['UserId']);
+        while($data = $rep->fetch())
+        {
+            echo "<button style=\"float:right\" class=\"btn btn-danger\">X</button>";
+                echo "<img class=\"icone\" src=\"ProductImages/";
+                echo $data['images'];
+                echo "\"/>";
+                echo "Nom du produit : " . $data['names']."<br>";
+                echo "Description du produit : " . $data['desc']."<br>";
+                echo "DLC : " . date("d/m/y" ,strtotime($data['DLC'])) . "<br>";
+                echo "Poids : " . $data['poids'] . "kg <br>";
+                
+                echo "<p>Prix : ". $data['prix'] ."€";
+                
+                echo "<hr>";
+        }
+    ?>
 </div>
 </body>
 </html>

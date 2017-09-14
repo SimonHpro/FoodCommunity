@@ -14,8 +14,8 @@
 	</head>
 
 	<body>
-        <?php include_once "menu.php"; include_once"Classes/config.php";?>
         <h1 id="mainTitle">Food Community</h1>
+        <?php include_once "menu.php"; include_once"Classes/config.php";?>
         <div id="formulaire">
             <h2 id="">Ajouter un Produit</h2>
             <form method="post" enctype="multipart/form-data" action="Classes/addProduct.php">
