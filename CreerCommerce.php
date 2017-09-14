@@ -77,7 +77,7 @@ and open the template in the editor.
 
     <div>
         <button type="submit" id="add" class="btn btn-success">Compléter l'inscription</button>
-
+        <a href="index.php"><button type="button" id="add" class="btn btn-secondary ">Retour</button></a>
     </div>
 </form>
 </div>

@@ -2,7 +2,8 @@
 
 <html>
 	<head>
-		<title>Page Title</title>
+        <title>Food Community</title>
+        <link rel="shortcut icon" type="image/x-icon" href="Classes/favicon.png"/>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0">
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -25,11 +26,7 @@
                 opacity: 0.8;
                 border: 3px solid white;
             }
-            #planteMain{
-                border-radius: 10%;
-                height: 200px;
-                border: 3px solid white;
-            }
+
             #titleTwo{
                 font-size: 250%;
                 color: lightgreen;
@@ -54,8 +51,13 @@
             <p>Les entreprises partenaires ont choisi Food Community pour vous offrir des prix bas sur ces produits</p>
             <p>L'avantage de nos services permet de réduire les gachis de nourritures mais aussi les pertes dans les entreprises d'alimentation.</p>
             <br>
-            <p>Arrêtez de gaspiller rejoingnez Food Community !!!</p>
-            <img id="planteMain" src="Images/plante-main.jpg" alt="Image plante">
+            <video width="520" height="420" controls autoplay>
+                <source src="Images/TrailerFC.avi" type="video/avi">
+                <source src="Images/TrailerFC.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Arrêtez de gaspiller rejoignez Food Community !!!</p>
+
         </div>
 	</body>
 </html>

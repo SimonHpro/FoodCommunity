@@ -1,22 +1,33 @@
 <?php
+session_start();
+$id= $_SESSION["UserId"];
 include_once "Commerce.php";
 include_once "config.php";
-$nom = $_POST["nom"];
-$Mail = $_POST["mail"];
-$mdp = $_POST["password"];
-$tel = $_POST["tel"];
-
-$Commerce = new Commerce($nom,$Mail,$mdp,$tel);
-$Commerce->insert();
-$id_commerce = $Commerce ->getId();
-if($_GET["s"]="a"){
 
 
+if(isset($_POST['tel'])){
+    $Commerce= Commerce::GetCommerceById($id);
+    $tel= $_POST['tel'];
+    $nom = $Commerce->getNom();
+    $mail = $Commerce->getMail();
+    $mdp = $Commerce->getPassword();
+    $com = new Commerce($nom,$mail,$mdp ,$tel);
+    $com->setId($id);
+    $com->modify();
+    header('location : ../configVendeur.php');
+    die();
 }
-elseif ($_GET["s"]="m")
-$Adresse = new Adresses($address, $cp , $id_commerce);
 
-var_dump($Commerce);
-
-//header("location:../Accueil.php ")
+/*if(isset($_POST['mdp'])){
+    $Commerce= Commerce::GetCommerceById($id);
+    $mdp= $_POST['mdp'];
+    $nom = $Commerce->getNom();
+    $mail = $Commerce->getMail();
+    $tel = $Commerce->getTelephone();
+    $com = new Commerce($nom,$mail,$mdp ,$tel);
+    $com->modify($id);
+    header('Location : ../configVendeur.php');
 die();
+}*/
+
+

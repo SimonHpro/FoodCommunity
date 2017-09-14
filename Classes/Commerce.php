@@ -7,6 +7,13 @@ class Commerce
     private $Mail;
     private $password;
     private $Telephone;
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return mixed
@@ -122,9 +129,16 @@ class Commerce
        $db = null;
        return $commerce;
    }
-   public function modify($id){
-       $db= new PDO("mysql:host=".config::$SERVERNAME.";dbname=".config::DBNAME, config::USER,config::PASSWORD);
+   public function modify(){
+
+       $db= new PDO("mysql:host=".config::SERVERNAME.";dbname=".config::DBNAME, config::USER,config::PASSWORD);
        $req = $db->prepare("UPDATE commerce SET Nom=:Nom ,Mail=:Mail, password=:password , Telephone=:telephone WHERE id=:id");
+       $Nom= $this->getNom();
+       $Mail= $this->getMail();
+       $password = $this->getPassword();
+       $telephone= $this->getTelephone();
+       $id = $this->getId();
+
        $req->bindParam(":id",$id);
        $req->bindParam(":Nom", $Nom);
        $req->bindParam(":Mail", $Mail);

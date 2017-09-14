@@ -11,13 +11,11 @@ $req->execute();
 $resultat = $req->fetchAll();
 $long = sizeof($resultat);
 $id_commerce = $resultat[0]["id"];
-$_SESSION["UserId"]= $id_commerce;
-var_dump($id_commerce);
-var_dump($long);
 if ($long != 0) {
     $mdp = $resultat[0]["password"];
     if ($mdp === $password) {
-       header("location: ../configVendeur.php");
+        $_SESSION["UserId"]= $id_commerce;
+       header("location: ../vitrine.php");
 
     } else {
         header('location: ../connexion.php?resp=error');
@@ -28,3 +26,4 @@ if ($long != 0) {
 
 
 $db=null;
+die();
